@@ -1,6 +1,6 @@
 export default function Menu({ items, selectedId, onPick }) {
-    console.log('---------items',items);
-    console.log('---------selectedId',selectedId);
+    // console.log('---------items',items);
+    // console.log('---------selectedId',selectedId);
     console.log('---------onPick',onPick);
     
   return (
