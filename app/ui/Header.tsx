@@ -8,6 +8,8 @@ export default function Header() {
 
   const isHome = pathname === "/";
   const isMenu = pathname.startsWith("/menu");
+  const isState1 = pathname.startsWith("/state1");
+  const isState2 = pathname.startsWith("/state2");
 
   return (
     <header className="flex gap-3 p-4 border-b">
@@ -23,6 +25,20 @@ export default function Header() {
         className={isMenu ? "font-bold underline" : "text-gray-500"}
       >
         Menu
+      </Link>
+
+      <Link
+        href="/state1"
+        className={isState1 ? "font-bold underline" : "text-gray-500"}
+      >
+        state1
+      </Link>
+
+      <Link
+        href="/state2"
+        className={isState2 ? "font-bold underline" : "text-gray-500"}
+      >
+        state2
       </Link>
     </header>
   );
