@@ -6,7 +6,6 @@ export default function State2Page() {
   const { count2, setCount2 } = useApp();
 
 
-
   return (
     <div className="p-8">
       {/* <Header />
