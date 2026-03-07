@@ -4,7 +4,7 @@ import { useApp } from "../providers";
 
 export default function State2Page() {
   const { count2, setCount2 } = useApp();
-
+  {/* learn state delete */}
 
   return (
     <div className="p-8">
