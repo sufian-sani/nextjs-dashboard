@@ -4,14 +4,14 @@ type POSState = {
   sidebarOpen: boolean;
   count: number;
   count2: number;
-  activeCategory: string;
+  sidebarOpen2: boolean;
 };
 
 const initialState: POSState = {
   sidebarOpen: false,
   count: 0,
   count2: 0,
-  activeCategory: "",
+  sidebarOpen2: false,
 };
 
 const posSlice = createSlice({
@@ -36,6 +36,12 @@ const posSlice = createSlice({
     resetCount2(state) {
       state.count2 = 0;
     },
+    toggleSidebar2(state) {
+      state.sidebarOpen2 = !state.sidebarOpen2;
+    },
+    setSidebarOpen2(state, action: PayloadAction<boolean>) {
+      state.sidebarOpen2 = action.payload;
+    }
   },
 });
 
@@ -46,6 +52,8 @@ export const {
   resetCount,
   incrementCount2,
   resetCount2,
+  toggleSidebar2,
+  setSidebarOpen2
 } = posSlice.actions;
 
 export default posSlice.reducer;
