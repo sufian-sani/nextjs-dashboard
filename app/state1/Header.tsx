@@ -1,11 +1,13 @@
 "use client";
-import { useApp } from "../providers";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { setSidebarOpen } from "@/app/store/posSlice";
 
 export default function Header() {
-  const { sidebarOpen, setSidebarOpen } = useApp();
+  const dispatch = useAppDispatch();
+  const sidebarOpen = useAppSelector((state) => state.pos.sidebarOpen);
 
   return (
-    <button onClick={() => setSidebarOpen((p) => !p)}>
+    <button onClick={() => dispatch(setSidebarOpen(!sidebarOpen))}>
       Sidebar: {sidebarOpen ? "Open" : "Closed"}
     </button>
   );

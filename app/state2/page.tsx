@@ -1,25 +1,19 @@
 "use client";
 // import Header from "./Header";
-import { useApp } from "../providers";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { incrementCount2, resetCount2 } from "@/app/store/posSlice";
 
 export default function State2Page() {
-  const { count2, setCount2 } = useApp();
+  const dispatch = useAppDispatch();
+  const count2 = useAppSelector((state) => state.pos.count2);
   {/* learn state delete */}
 
   return (
     <div className="p-8">
-      {/* <Header />
-
-      <p><strong>Sidebar:</strong> {sidebarOpen ? "Open" : "Closed"}</p>
-
-      <p><strong>Counter:</strong> {count}</p> */}
-      {/* <button onClick={() => setCount((c) => c + 1)}>Increment</button>
-      <button onClick={() => setCount(0)}>Reset</button> */}
-
         <p>This page does not use the shared state.</p>
         <p><strong>Counter:</strong> {count2}</p>
-        <button onClick={() => setCount2((c) => c + 1)}>Increment</button>
-        <button onClick={() => setCount2(0)}>Reset</button>
+        <button onClick={() => dispatch(incrementCount2())}>Increment</button>
+        <button onClick={() => dispatch(resetCount2())}>Reset</button>
     </div>
   );
 }

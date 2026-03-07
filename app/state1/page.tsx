@@ -1,9 +1,12 @@
 "use client";
 import Header from "./Header";
-import { useApp } from "../providers";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { incrementCount, resetCount } from "@/app/store/posSlice";
 
 export default function State1Page() {
-  const { sidebarOpen, count, setCount } = useApp();
+  const dispatch = useAppDispatch();
+  const sidebarOpen = useAppSelector((state) => state.pos.sidebarOpen);
+  const count = useAppSelector((state) => state.pos.count);
 
   return (
     <div className="p-8">
@@ -12,8 +15,8 @@ export default function State1Page() {
       <p><strong>Sidebar:</strong> {sidebarOpen ? "Open" : "Closed"}</p>
 
       <p><strong>Counter:</strong> {count}</p>
-      <button onClick={() => setCount((c) => c + 1)}>Increment</button>
-      <button onClick={() => setCount(0)}>Reset</button>
+      <button onClick={() => dispatch(incrementCount())}>Increment</button>
+      <button onClick={() => dispatch(resetCount())}>Reset</button>
     </div>
   );
 }
