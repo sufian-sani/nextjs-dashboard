@@ -17,6 +17,7 @@ const SideBarPanel: React.FC<sidebarProps> = ({
     onButtonClick
 }) => {
     console.log("data", data);
+    console.log("onButtonClick", onButtonClick);
     return (
         <aside className={styles.sidebar}>
             <div className={styles.header}>
