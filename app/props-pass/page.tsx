@@ -2,6 +2,7 @@
 
 import styles from './styles.module.css';
 import SideBar from "@/app/component/props-pass/sideBar";
+import DiscountSideBar from "@/app/component/discountSideBar/dicount";
 
 
 export default function Page() {
@@ -27,6 +28,7 @@ export default function Page() {
                     Get Started
                 </button>
             </div>
+            <DiscountSideBar />
         </div>
     );
 }
