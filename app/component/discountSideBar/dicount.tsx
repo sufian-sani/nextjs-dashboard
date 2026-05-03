@@ -23,7 +23,7 @@ const DiscountSideBar = () => {
 
     const handleAddDiscount = (item: Item, currentDiscount: number) => {
         setEditingItemId(item.id);
-        setDiscountValue(currentDiscount.toString());
+        setDiscountValue(currentDiscount > 0 ? currentDiscount.toString() : "");
     };
 
     const handleSaveDiscount = (itemId: number) => {
@@ -71,14 +71,14 @@ const DiscountSideBar = () => {
                                         onChange={(e) => setDiscountValue(e.target.value)}
                                         placeholder="Amount"
                                     />
-                                    <button 
-                                        className={`${styles.btn} ${styles.btnPrimary}`} 
+                                    <button
+                                        className={`${styles.btn} ${styles.btnPrimary}`}
                                         onClick={() => handleSaveDiscount(item.id)}
                                     >
                                         Save
                                     </button>
-                                    <button 
-                                        className={`${styles.btn} ${styles.btnSecondary}`} 
+                                    <button
+                                        className={`${styles.btn} ${styles.btnSecondary}`}
                                         onClick={handleCancelDiscount}
                                     >
                                         Cancel
