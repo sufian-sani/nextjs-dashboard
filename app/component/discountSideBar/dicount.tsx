@@ -18,6 +18,22 @@ const DiscountSideBar = () => {
         { id: 4, name: "Product D", price: 300, discount: 0 },
     ]);
 
+    React.useEffect(() => {
+        const savedItems = localStorage.getItem("discount_items");
+        if (savedItems) {
+            try {
+                setItems(JSON.parse(savedItems));
+            } catch (error) {
+                console.error("Failed to parse saved items:", error);
+            }
+        }
+    }, []);
+
+    React.useEffect(() => {
+        localStorage.setItem("discount_items", JSON.stringify(items));
+    }, [items]);
+
+
     const [editingItemId, setEditingItemId] = React.useState<number | null>(null);
     const [discountValue, setDiscountValue] = React.useState<string>("");
 
