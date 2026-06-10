@@ -11,6 +11,7 @@ export default function Header() {
   const isState1 = pathname.startsWith("/state1");
   const isState2 = pathname.startsWith("/state2");
   const isPropsPass = pathname.startsWith("/props-pass");
+  const isPass2 = pathname.startsWith("/pass2");
 
   return (
     <header className="flex gap-3 p-4 border-b">
@@ -46,6 +47,12 @@ export default function Header() {
         className={isPropsPass ? "font-bold underline" : "text-gray-500"}
       >
         Props Pass
+      </Link>
+      <Link
+        href="/pass2"
+        className={isPass2 ? "font-bold underline" : "text-gray-500"}
+      >
+        Pass 2
       </Link>
     </header>
   );
